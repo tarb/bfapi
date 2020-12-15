@@ -144,11 +144,11 @@ func (c *Client) login(username, password string) (Token, error) {
 	return t, nil
 }
 
-// KeepAlive -should client continue - and error. If subscription is no longer active for example
+// KeepAlive error if subscription is no longer active for example
 // return false, and err.Expired
-func (c *Client) KeepAlive() (bool, error) {
+func (c *Client) KeepAlive() error {
 	if !c.sem.TryAcquire(1) {
-		return true, ErrBusy
+		return ErrBusy
 	}
 	defer c.sem.Release(1)
 
@@ -168,15 +168,15 @@ func (c *Client) KeepAlive() (bool, error) {
 
 	// was login successful
 	if err != nil {
-		return true, err
+		return err
 	} else if result.Status != "SUCCESS" {
 		// Connection worked but keepAlive was not successful
-		return true, errors.New("Session KeepAlive Failed. " + result.Error)
+		return errors.New("Session KeepAlive Failed. " + result.Error)
 	}
 
 	c.token.Store(Token{token.Token, token.Logged, now, token.VcID, token.Sub})
 
-	return true, nil
+	return nil
 }
 
 //

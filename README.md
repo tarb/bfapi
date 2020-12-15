@@ -3,46 +3,121 @@
 Implementation of Betfair's Exchange, Account and Stream Api
 
 
-#### Logging in
+#### Normal non-vendor login flow
 
-There are two ways to login and you must choose one of them before calling any other functions, but both login method acts predominantly the same way. For non-interactive logins (logins from automated apps where a human is not present during the login process) Betfair recommend using the CertLogin method. This method requires you created and upload a certificate through which you will encrypt your traffic.
 ```go
-if token, err := bfapi.CertLogin(user, pass, appKey, certFile, keyFile); err != nil {
-    log.Fatalf("Failed to login: %v", err)
-}
+// create a client
+// can pass in a http.Client if you want to specifiy custom timeouts/proxy/options
+// can pass in a certificate if you want to login with certlogin
+client := bfapi.NewClient("APPKEY", nil, nil)
+
+// call login
+token, err := client.Login("USERNAME", "PASSWORD")
+// login will call either interactive login or certLogin depending on whether a certificate was supplied
 ```
-Where users have provided you the username and password dynamically Betfair recommend the simpler interactive Login method.
+
+The login expires every 3? hours but KeepAlive can be called to extend this time (by another 3 hours). KeepAlive will block for the supplied duration and is best called from a go routine.
 ```go
-if token, err := bfapi.Login(user, pass, appkey); err != nil {
-    log.Fatalf("Failed to login: %v", err)
+go func() {
+    ticker := time.NewTicker(3 * time.Hour)
+    for range ticker.C {
+        if err := client.KeepAlive(); err != nil {
+            // ...
+        }
+    }    
 }
-```
-The login expires every 3 hours but KeepAlive can be called to extend this time (by another 3 hours). KeepAlive will block for the supplied duration and is best called from a go routine.
-```go
-go bfapi.KeepAlive(3 * time.Hour)
 ```
 
 #### Methods
 
 ListMarketCatalogue can be used to retrieve a broad overview of a selection of markets
 
-Example of ListMarketCatalogue from outside package
+Example of ListMarketCatalogu
 ```go
-arg := bfapi.ListMarketCatalogueArg{
-    Filter: MarketFilter{
-        EventTypes: []string{"4339"}, // greyhounds id code
-        Countries:  []string{"GB"},
-        TypeCodes:  []string{"WIN"},
-    },
-    Sort:             "FIRST_TO_START",
-    MarketProjection: []string{"MARKET_START_TIME", "RUNNER_DESCRIPTION", "EVENT"},
-    MaxResults:       1000,
+	// request a catalogue of markets meeting the specified filter/projection
+	cat, err := client.ListMarketCatalogue(bfapi.ListMarketCatalogueArg{
+		Filter: bfapi.MarketListFilter{
+			Countries:  []string{"AU", "GB"},
+			EventTypes: []string{"7"},
+			TypeCodes:  []string{"WIN",
+		},
+		MaxResults:       200,
+		MarketProjection: []string{"MARKET_START_TIME", "MARKET_DESCRIPTION", "EVENT", "EVENT_TYPE", "RUNNER_DESCRIPTION", "RUNNER_METADATA"},
+	})
+
+```
+
+#### Stream
+
+```go
+    // setup a stream handler and create a stream
+    var sh StreamHandler
+    // connecting to a market stream
+	stream := client.NewTCPStream(&sh, bfapi.SubsMessage{
+		Op: bfapi.MarketSub,
+		ID: 1,
+		HeartbeatMs: heartbeatMs,
+		MarketFilter: &bfapi.MarketStreamFilter{
+			CountryCodes: []string{"AU", "GB"},,
+			EventTypeIds: []string{"7"},,
+			MarketTypes:  []string{"WIN",,
+		},
+		MarketDataFilter: &bfapi.MarketDataFilter{
+			LadderLevels: 3,
+			Fields:       []string{"EX_BEST_OFFERS_DISP", "EX_TRADED", "EX_TRADED_VOL", "EX_MARKET_DEF"},
+		},
+	})
+
+    // connecting to an order stream
+	// stream := bfClient.NewTCPStream(&sh, bfapi.SubsMessage{
+	// 	Op:                  bfapi.OrderSub,
+	// 	ID:                  1,
+	// 	SegmentationEnabled: false,
+	// 	HeartbeatMs:         heartbeatMs,
+	// 	ConflateMs:          conflateMs,
+	// 	OrderFilter: &bfapi.OrderFilter{
+	// 		IncludeOverallPosition:        true,
+	// 		PartitionMatchedByStrategyRef: true,
+	// 		CustomerStrategyRefs:          []string{"My Cool Strategy"},
+	// 	},
+	// })
+
+	// listen to the stream for an hour
+	go stream.Listen()
+	time.Sleep(time.Hour)
+	stream.Close()
 }
 
-result, err := bfapi.ListMarketCatalogue(arg)
+// StreamHandler implements bfapi.StreamHandler
+type StreamHandler struct {
+}
+
+// OnConnect called on new stream connections, with bfapi ConnectionMessage
+func (s *StreamHandler) OnConnect(cm bfapi.ConnectionMessage) {
+	fmt.Println(cm)
+}
+
+// OnStatus called on stream connection changes, with bfapi StatusMessage
+func (s *StreamHandler) OnStatus(sm bfapi.StatusMessage) {
+	fmt.Println(sm)
+}
+
+// OnChange called with market or order changes, or HEARTBEAT msg at the specified
+// interval to show stream connectivity if no other changes were sent
+func (s *StreamHandler) OnChange(cm bfapi.ChangeMessage) {
+    fmt.Println(cm)
+}
+
+// OnClose called when stream disconects/ends or when close is called
+func (s *StreamHandler) OnClose(err error) {
+	fmt.Println(err)
+}
+
 ```
+
 
 ### TODO
 
 * Documentation - Function/TypeDef comments
-* Add more Betfair methods and types
+* Documentation - list the other methods
+* Add more Betfair methods and types 
