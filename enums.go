@@ -86,54 +86,54 @@ func (s Side) MarshalJSON() ([]byte, error) {
 
 //
 const (
-	BetStatusInit       BetStatus = 1
-	BetStatusPending    BetStatus = 2
-	BetStatusCanceling  BetStatus = 3
-	BetStatusExecutable BetStatus = 4
-	BetStatusExComplete BetStatus = 5
-	BetStatusFailed     BetStatus = 6
+	OrderStatusInit       OrderStatus = 1
+	OrderStatusPending    OrderStatus = 2
+	OrderStatusCanceling  OrderStatus = 3
+	OrderStatusExecutable OrderStatus = 4
+	OrderStatusExComplete OrderStatus = 5
+	OrderStatusFailed     OrderStatus = 6
 )
 
 var (
-	betStatusExecutableJSON      = []byte(`"EXECUTABLE"`)
-	betStatusExecutableShortJSON = []byte(`"E"`)
-	betStatusExCompleteJSON      = []byte(`"EXECUTION_COMPLETE"`)
-	betStatusExCompleteShortJSON = []byte(`"EC"`)
+	orderStatusExecutableJSON      = []byte(`"EXECUTABLE"`)
+	orderStatusExecutableShortJSON = []byte(`"E"`)
+	orderStatusExCompleteJSON      = []byte(`"EXECUTION_COMPLETE"`)
+	orderStatusExCompleteShortJSON = []byte(`"EC"`)
 )
 
 //
-type BetStatus uint8
+type OrderStatus uint8
 
 // UnmarshalJSON implements the json.Unmarshaler interface.
-func (bs *BetStatus) UnmarshalJSON(data []byte) error {
-	if bytes.Equal(data, betStatusExecutableShortJSON) {
-		*bs = BetStatusExecutable
-	} else if bytes.Equal(data, betStatusExCompleteShortJSON) {
-		*bs = BetStatusExComplete
-	} else if bytes.Equal(data, betStatusExecutableJSON) {
-		*bs = BetStatusExecutable
-	} else if bytes.Equal(data, betStatusExCompleteJSON) {
-		*bs = BetStatusExComplete
+func (bs *OrderStatus) UnmarshalJSON(data []byte) error {
+	if bytes.Equal(data, orderStatusExecutableShortJSON) {
+		*bs = OrderStatusExecutable
+	} else if bytes.Equal(data, orderStatusExCompleteShortJSON) {
+		*bs = OrderStatusExComplete
+	} else if bytes.Equal(data, orderStatusExecutableJSON) {
+		*bs = OrderStatusExecutable
+	} else if bytes.Equal(data, orderStatusExCompleteJSON) {
+		*bs = OrderStatusExComplete
 	} else {
-		return errors.New("invalid BetStatus value in unmarshal - " + string(data))
+		return errors.New("invalid OrderStatus value in unmarshal - " + string(data))
 	}
 
 	return nil
 }
 
-func (bs BetStatus) String() string {
+func (bs OrderStatus) String() string {
 	switch bs {
-	case BetStatusInit:
+	case OrderStatusInit:
 		return "INITIAL"
-	case BetStatusPending:
+	case OrderStatusPending:
 		return "PENDING"
-	case BetStatusCanceling:
+	case OrderStatusCanceling:
 		return "CANCELING"
-	case BetStatusExecutable:
+	case OrderStatusExecutable:
 		return "EXECUTABLE"
-	case BetStatusExComplete:
+	case OrderStatusExComplete:
 		return "EXECUTION_COMPLETE"
-	case BetStatusFailed:
+	case OrderStatusFailed:
 		return "FAILED"
 	default:
 		return ""
@@ -274,7 +274,7 @@ func (ot *OrderType) UnmarshalJSON(data []byte) error {
 	} else if bytes.Equal(data, otLocJSON) {
 		*ot = OrderTypeLimitOnClose
 	} else {
-		return errors.New("invalid BetStatus value in unmarshal - " + string(data))
+		return errors.New("invalid OrderStatus value in unmarshal - " + string(data))
 	}
 
 	return nil

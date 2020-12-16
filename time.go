@@ -34,7 +34,7 @@ func (t *Time) UnmarshalJSON(data []byte) error {
 		return nil
 	}
 
-	// Ignore string null, like in the main JSON package.
+	// Ignore string null
 	if string(data) == "null" {
 		return nil
 	}

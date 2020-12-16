@@ -28,7 +28,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi(in *jlexer.Lexer, out *VenueResult
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -101,7 +101,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi1(in *jlexer.Lexer, out *UpdateOrde
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -224,7 +224,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi2(in *jlexer.Lexer, out *UpdateInst
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -315,7 +315,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi3(in *jlexer.Lexer, out *UpdateInst
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -394,7 +394,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi4(in *jlexer.Lexer, out *UpdateExec
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -541,7 +541,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi5(in *jlexer.Lexer, out *TimeRange)
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -618,7 +618,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi6(in *jlexer.Lexer, out *StartingPr
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -793,7 +793,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi7(in *jlexer.Lexer, out *StartingPr
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -944,7 +944,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi8(in *jlexer.Lexer, out *RunnerProf
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -1031,7 +1031,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi9(in *jlexer.Lexer, out *RunnerMeta
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -1470,7 +1470,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi10(in *jlexer.Lexer, out *RunnerCat
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -1593,7 +1593,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi11(in *jlexer.Lexer, out *Runner) {
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -1760,7 +1760,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi12(in *jlexer.Lexer, out *ReplaceOr
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -1907,7 +1907,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi13(in *jlexer.Lexer, out *ReplaceIn
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -2010,7 +2010,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi14(in *jlexer.Lexer, out *ReplaceIn
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -2089,7 +2089,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi15(in *jlexer.Lexer, out *ReplaceEx
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -2115,7 +2115,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi15(in *jlexer.Lexer, out *ReplaceEx
 				in.Delim('[')
 				if out.InstructionReports == nil {
 					if !in.IsDelim(']') {
-						out.InstructionReports = make([]ReplaceInstructionReport, 0, 1)
+						out.InstructionReports = make([]ReplaceInstructionReport, 0, 0)
 					} else {
 						out.InstructionReports = []ReplaceInstructionReport{}
 					}
@@ -2236,7 +2236,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi16(in *jlexer.Lexer, out *PriceSize
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -2315,7 +2315,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi17(in *jlexer.Lexer, out *PriceProj
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -2448,7 +2448,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi18(in *jlexer.Lexer, out *PriceLadd
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -2515,7 +2515,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi19(in *jlexer.Lexer, out *PlaceOrde
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -2535,7 +2535,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi19(in *jlexer.Lexer, out *PlaceOrde
 				in.Delim('[')
 				if out.Instructions == nil {
 					if !in.IsDelim(']') {
-						out.Instructions = make([]PlaceInstruction, 0, 1)
+						out.Instructions = make([]PlaceInstruction, 0, 0)
 					} else {
 						out.Instructions = []PlaceInstruction{}
 					}
@@ -2674,7 +2674,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi20(in *jlexer.Lexer, out *PlaceOrde
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -2694,7 +2694,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi20(in *jlexer.Lexer, out *PlaceOrde
 				in.Delim('[')
 				if out.Instructions == nil {
 					if !in.IsDelim(']') {
-						out.Instructions = make([]PlaceInstruction, 0, 1)
+						out.Instructions = make([]PlaceInstruction, 0, 0)
 					} else {
 						out.Instructions = []PlaceInstruction{}
 					}
@@ -2833,7 +2833,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi21(in *jlexer.Lexer, out *PlaceInst
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -2948,7 +2948,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi22(in *jlexer.Lexer, out *PlaceInst
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -3127,7 +3127,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi23(in *jlexer.Lexer, out *PlaceExec
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -3153,7 +3153,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi23(in *jlexer.Lexer, out *PlaceExec
 				in.Delim('[')
 				if out.InstructionReports == nil {
 					if !in.IsDelim(']') {
-						out.InstructionReports = make([]PlaceInstructionReport, 0, 1)
+						out.InstructionReports = make([]PlaceInstructionReport, 0, 0)
 					} else {
 						out.InstructionReports = []PlaceInstructionReport{}
 					}
@@ -3255,7 +3255,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi24(in *jlexer.Lexer, out *MarketVer
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -3322,7 +3322,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi25(in *jlexer.Lexer, out *MarketTyp
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -3395,7 +3395,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi26(in *jlexer.Lexer, out *MarketPro
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -3509,7 +3509,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi27(in *jlexer.Lexer, out *MarketOnC
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -3576,7 +3576,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi28(in *jlexer.Lexer, out *MarketLis
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -3584,6 +3584,8 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi28(in *jlexer.Lexer, out *MarketLis
 			continue
 		}
 		switch key {
+		case "textQuery":
+			out.TextQuery = string(in.String())
 		case "marketIds":
 			if in.IsNull() {
 				in.Skip()
@@ -3612,22 +3614,45 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi28(in *jlexer.Lexer, out *MarketLis
 		case "eventTypeIds":
 			if in.IsNull() {
 				in.Skip()
-				out.EventTypes = nil
+				out.EventTypeIds = nil
 			} else {
 				in.Delim('[')
-				if out.EventTypes == nil {
+				if out.EventTypeIds == nil {
 					if !in.IsDelim(']') {
-						out.EventTypes = make([]string, 0, 4)
+						out.EventTypeIds = make([]string, 0, 4)
 					} else {
-						out.EventTypes = []string{}
+						out.EventTypeIds = []string{}
 					}
 				} else {
-					out.EventTypes = (out.EventTypes)[:0]
+					out.EventTypeIds = (out.EventTypeIds)[:0]
 				}
 				for !in.IsDelim(']') {
 					var v41 string
 					v41 = string(in.String())
-					out.EventTypes = append(out.EventTypes, v41)
+					out.EventTypeIds = append(out.EventTypeIds, v41)
+					in.WantComma()
+				}
+				in.Delim(']')
+			}
+		case "eventIds":
+			if in.IsNull() {
+				in.Skip()
+				out.EventIds = nil
+			} else {
+				in.Delim('[')
+				if out.EventIds == nil {
+					if !in.IsDelim(']') {
+						out.EventIds = make([]string, 0, 4)
+					} else {
+						out.EventIds = []string{}
+					}
+				} else {
+					out.EventIds = (out.EventIds)[:0]
+				}
+				for !in.IsDelim(']') {
+					var v42 string
+					v42 = string(in.String())
+					out.EventIds = append(out.EventIds, v42)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -3648,9 +3673,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi28(in *jlexer.Lexer, out *MarketLis
 					out.Countries = (out.Countries)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v42 string
-					v42 = string(in.String())
-					out.Countries = append(out.Countries, v42)
+					var v43 string
+					v43 = string(in.String())
+					out.Countries = append(out.Countries, v43)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -3658,22 +3683,68 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi28(in *jlexer.Lexer, out *MarketLis
 		case "marketTypeCodes":
 			if in.IsNull() {
 				in.Skip()
-				out.TypeCodes = nil
+				out.MarketTypeCodes = nil
 			} else {
 				in.Delim('[')
-				if out.TypeCodes == nil {
+				if out.MarketTypeCodes == nil {
 					if !in.IsDelim(']') {
-						out.TypeCodes = make([]string, 0, 4)
+						out.MarketTypeCodes = make([]string, 0, 4)
 					} else {
-						out.TypeCodes = []string{}
+						out.MarketTypeCodes = []string{}
 					}
 				} else {
-					out.TypeCodes = (out.TypeCodes)[:0]
+					out.MarketTypeCodes = (out.MarketTypeCodes)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v43 string
-					v43 = string(in.String())
-					out.TypeCodes = append(out.TypeCodes, v43)
+					var v44 string
+					v44 = string(in.String())
+					out.MarketTypeCodes = append(out.MarketTypeCodes, v44)
+					in.WantComma()
+				}
+				in.Delim(']')
+			}
+		case "marketBettingTypes":
+			if in.IsNull() {
+				in.Skip()
+				out.MarketBettingTypes = nil
+			} else {
+				in.Delim('[')
+				if out.MarketBettingTypes == nil {
+					if !in.IsDelim(']') {
+						out.MarketBettingTypes = make([]string, 0, 4)
+					} else {
+						out.MarketBettingTypes = []string{}
+					}
+				} else {
+					out.MarketBettingTypes = (out.MarketBettingTypes)[:0]
+				}
+				for !in.IsDelim(']') {
+					var v45 string
+					v45 = string(in.String())
+					out.MarketBettingTypes = append(out.MarketBettingTypes, v45)
+					in.WantComma()
+				}
+				in.Delim(']')
+			}
+		case "raceTypes":
+			if in.IsNull() {
+				in.Skip()
+				out.RaceTypes = nil
+			} else {
+				in.Delim('[')
+				if out.RaceTypes == nil {
+					if !in.IsDelim(']') {
+						out.RaceTypes = make([]string, 0, 4)
+					} else {
+						out.RaceTypes = []string{}
+					}
+				} else {
+					out.RaceTypes = (out.RaceTypes)[:0]
+				}
+				for !in.IsDelim(']') {
+					var v46 string
+					v46 = string(in.String())
+					out.RaceTypes = append(out.RaceTypes, v46)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -3694,9 +3765,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi28(in *jlexer.Lexer, out *MarketLis
 					out.CompetitionIds = (out.CompetitionIds)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v44 string
-					v44 = string(in.String())
-					out.CompetitionIds = append(out.CompetitionIds, v44)
+					var v47 string
+					v47 = string(in.String())
+					out.CompetitionIds = append(out.CompetitionIds, v47)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -3717,12 +3788,77 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi28(in *jlexer.Lexer, out *MarketLis
 					out.Venues = (out.Venues)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v45 string
-					v45 = string(in.String())
-					out.Venues = append(out.Venues, v45)
+					var v48 string
+					v48 = string(in.String())
+					out.Venues = append(out.Venues, v48)
 					in.WantComma()
 				}
 				in.Delim(']')
+			}
+		case "withOrders":
+			if in.IsNull() {
+				in.Skip()
+				out.WithOrders = nil
+			} else {
+				in.Delim('[')
+				if out.WithOrders == nil {
+					if !in.IsDelim(']') {
+						out.WithOrders = make([]OrderStatus, 0, 64)
+					} else {
+						out.WithOrders = []OrderStatus{}
+					}
+				} else {
+					out.WithOrders = (out.WithOrders)[:0]
+				}
+				for !in.IsDelim(']') {
+					var v49 OrderStatus
+					if data := in.Raw(); in.Ok() {
+						in.AddError((v49).UnmarshalJSON(data))
+					}
+					out.WithOrders = append(out.WithOrders, v49)
+					in.WantComma()
+				}
+				in.Delim(']')
+			}
+		case "marketStartTime":
+			if in.IsNull() {
+				in.Skip()
+				out.StartTime = nil
+			} else {
+				if out.StartTime == nil {
+					out.StartTime = new(TimeRange)
+				}
+				(*out.StartTime).UnmarshalEasyJSON(in)
+			}
+		case "bspOnly":
+			if in.IsNull() {
+				in.Skip()
+				out.BspOnly = nil
+			} else {
+				if out.BspOnly == nil {
+					out.BspOnly = new(bool)
+				}
+				*out.BspOnly = bool(in.Bool())
+			}
+		case "turnInPlayEnabled":
+			if in.IsNull() {
+				in.Skip()
+				out.TurnInPlayEnabled = nil
+			} else {
+				if out.TurnInPlayEnabled == nil {
+					out.TurnInPlayEnabled = new(bool)
+				}
+				*out.TurnInPlayEnabled = bool(in.Bool())
+			}
+		case "inPlayOnly":
+			if in.IsNull() {
+				in.Skip()
+				out.InPlayOnly = nil
+			} else {
+				if out.InPlayOnly == nil {
+					out.InPlayOnly = new(bool)
+				}
+				*out.InPlayOnly = bool(in.Bool())
 			}
 		default:
 			in.SkipRecursive()
@@ -3738,22 +3874,32 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi28(out *jwriter.Writer, in MarketLi
 	out.RawByte('{')
 	first := true
 	_ = first
-	if len(in.MarketIds) != 0 {
-		const prefix string = ",\"marketIds\":"
+	if in.TextQuery != "" {
+		const prefix string = ",\"textQuery\":"
 		first = false
 		out.RawString(prefix[1:])
+		out.String(string(in.TextQuery))
+	}
+	if len(in.MarketIds) != 0 {
+		const prefix string = ",\"marketIds\":"
+		if first {
+			first = false
+			out.RawString(prefix[1:])
+		} else {
+			out.RawString(prefix)
+		}
 		{
 			out.RawByte('[')
-			for v46, v47 := range in.MarketIds {
-				if v46 > 0 {
+			for v50, v51 := range in.MarketIds {
+				if v50 > 0 {
 					out.RawByte(',')
 				}
-				out.Raw((v47).MarshalJSON())
+				out.Raw((v51).MarshalJSON())
 			}
 			out.RawByte(']')
 		}
 	}
-	if len(in.EventTypes) != 0 {
+	if len(in.EventTypeIds) != 0 {
 		const prefix string = ",\"eventTypeIds\":"
 		if first {
 			first = false
@@ -3763,11 +3909,30 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi28(out *jwriter.Writer, in MarketLi
 		}
 		{
 			out.RawByte('[')
-			for v48, v49 := range in.EventTypes {
-				if v48 > 0 {
+			for v52, v53 := range in.EventTypeIds {
+				if v52 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v49))
+				out.String(string(v53))
+			}
+			out.RawByte(']')
+		}
+	}
+	if len(in.EventIds) != 0 {
+		const prefix string = ",\"eventIds\":"
+		if first {
+			first = false
+			out.RawString(prefix[1:])
+		} else {
+			out.RawString(prefix)
+		}
+		{
+			out.RawByte('[')
+			for v54, v55 := range in.EventIds {
+				if v54 > 0 {
+					out.RawByte(',')
+				}
+				out.String(string(v55))
 			}
 			out.RawByte(']')
 		}
@@ -3782,16 +3947,16 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi28(out *jwriter.Writer, in MarketLi
 		}
 		{
 			out.RawByte('[')
-			for v50, v51 := range in.Countries {
-				if v50 > 0 {
+			for v56, v57 := range in.Countries {
+				if v56 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v51))
+				out.String(string(v57))
 			}
 			out.RawByte(']')
 		}
 	}
-	if len(in.TypeCodes) != 0 {
+	if len(in.MarketTypeCodes) != 0 {
 		const prefix string = ",\"marketTypeCodes\":"
 		if first {
 			first = false
@@ -3801,11 +3966,49 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi28(out *jwriter.Writer, in MarketLi
 		}
 		{
 			out.RawByte('[')
-			for v52, v53 := range in.TypeCodes {
-				if v52 > 0 {
+			for v58, v59 := range in.MarketTypeCodes {
+				if v58 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v53))
+				out.String(string(v59))
+			}
+			out.RawByte(']')
+		}
+	}
+	if len(in.MarketBettingTypes) != 0 {
+		const prefix string = ",\"marketBettingTypes\":"
+		if first {
+			first = false
+			out.RawString(prefix[1:])
+		} else {
+			out.RawString(prefix)
+		}
+		{
+			out.RawByte('[')
+			for v60, v61 := range in.MarketBettingTypes {
+				if v60 > 0 {
+					out.RawByte(',')
+				}
+				out.String(string(v61))
+			}
+			out.RawByte(']')
+		}
+	}
+	if len(in.RaceTypes) != 0 {
+		const prefix string = ",\"raceTypes\":"
+		if first {
+			first = false
+			out.RawString(prefix[1:])
+		} else {
+			out.RawString(prefix)
+		}
+		{
+			out.RawByte('[')
+			for v62, v63 := range in.RaceTypes {
+				if v62 > 0 {
+					out.RawByte(',')
+				}
+				out.String(string(v63))
 			}
 			out.RawByte(']')
 		}
@@ -3820,11 +4023,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi28(out *jwriter.Writer, in MarketLi
 		}
 		{
 			out.RawByte('[')
-			for v54, v55 := range in.CompetitionIds {
-				if v54 > 0 {
+			for v64, v65 := range in.CompetitionIds {
+				if v64 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v55))
+				out.String(string(v65))
 			}
 			out.RawByte(']')
 		}
@@ -3839,14 +4042,73 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi28(out *jwriter.Writer, in MarketLi
 		}
 		{
 			out.RawByte('[')
-			for v56, v57 := range in.Venues {
-				if v56 > 0 {
+			for v66, v67 := range in.Venues {
+				if v66 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v57))
+				out.String(string(v67))
 			}
 			out.RawByte(']')
 		}
+	}
+	if len(in.WithOrders) != 0 {
+		const prefix string = ",\"withOrders\":"
+		if first {
+			first = false
+			out.RawString(prefix[1:])
+		} else {
+			out.RawString(prefix)
+		}
+		{
+			out.RawByte('[')
+			for v68, v69 := range in.WithOrders {
+				if v68 > 0 {
+					out.RawByte(',')
+				}
+				out.Uint8(uint8(v69))
+			}
+			out.RawByte(']')
+		}
+	}
+	if in.StartTime != nil {
+		const prefix string = ",\"marketStartTime\":"
+		if first {
+			first = false
+			out.RawString(prefix[1:])
+		} else {
+			out.RawString(prefix)
+		}
+		(*in.StartTime).MarshalEasyJSON(out)
+	}
+	if in.BspOnly != nil {
+		const prefix string = ",\"bspOnly\":"
+		if first {
+			first = false
+			out.RawString(prefix[1:])
+		} else {
+			out.RawString(prefix)
+		}
+		out.Bool(bool(*in.BspOnly))
+	}
+	if in.TurnInPlayEnabled != nil {
+		const prefix string = ",\"turnInPlayEnabled\":"
+		if first {
+			first = false
+			out.RawString(prefix[1:])
+		} else {
+			out.RawString(prefix)
+		}
+		out.Bool(bool(*in.TurnInPlayEnabled))
+	}
+	if in.InPlayOnly != nil {
+		const prefix string = ",\"inPlayOnly\":"
+		if first {
+			first = false
+			out.RawString(prefix[1:])
+		} else {
+			out.RawString(prefix)
+		}
+		out.Bool(bool(*in.InPlayOnly))
 	}
 	out.RawByte('}')
 }
@@ -3885,7 +4147,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi29(in *jlexer.Lexer, out *MarketLin
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -3988,7 +4250,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi30(in *jlexer.Lexer, out *MarketDes
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -4265,7 +4527,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi31(in *jlexer.Lexer, out *MarketCat
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -4311,9 +4573,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi31(in *jlexer.Lexer, out *MarketCat
 					out.Runners = (out.Runners)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v58 RunnerCatalogue
-					(v58).UnmarshalEasyJSON(in)
-					out.Runners = append(out.Runners, v58)
+					var v70 RunnerCatalogue
+					(v70).UnmarshalEasyJSON(in)
+					out.Runners = append(out.Runners, v70)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -4418,11 +4680,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi31(out *jwriter.Writer, in MarketCa
 		}
 		{
 			out.RawByte('[')
-			for v59, v60 := range in.Runners {
-				if v59 > 0 {
+			for v71, v72 := range in.Runners {
+				if v71 > 0 {
 					out.RawByte(',')
 				}
-				(v60).MarshalEasyJSON(out)
+				(v72).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -4494,7 +4756,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi32(in *jlexer.Lexer, out *MarketBoo
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -4532,7 +4794,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi32(in *jlexer.Lexer, out *MarketBoo
 				in.Delim('[')
 				if out.Runners == nil {
 					if !in.IsDelim(']') {
-						out.Runners = make([]Runner, 0, 1)
+						out.Runners = make([]Runner, 0, 0)
 					} else {
 						out.Runners = []Runner{}
 					}
@@ -4540,9 +4802,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi32(in *jlexer.Lexer, out *MarketBoo
 					out.Runners = (out.Runners)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v61 Runner
-					(v61).UnmarshalEasyJSON(in)
-					out.Runners = append(out.Runners, v61)
+					var v73 Runner
+					(v73).UnmarshalEasyJSON(in)
+					out.Runners = append(out.Runners, v73)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -4675,11 +4937,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi32(out *jwriter.Writer, in MarketBo
 		}
 		{
 			out.RawByte('[')
-			for v62, v63 := range in.Runners {
-				if v62 > 0 {
+			for v74, v75 := range in.Runners {
+				if v74 > 0 {
 					out.RawByte(',')
 				}
-				(v63).MarshalEasyJSON(out)
+				(v75).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -4801,7 +5063,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi33(in *jlexer.Lexer, out *ListRunne
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -4841,9 +5103,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi33(in *jlexer.Lexer, out *ListRunne
 					out.CustomerStrategyRefs = (out.CustomerStrategyRefs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v64 string
-					v64 = string(in.String())
-					out.CustomerStrategyRefs = append(out.CustomerStrategyRefs, v64)
+					var v76 string
+					v76 = string(in.String())
+					out.CustomerStrategyRefs = append(out.CustomerStrategyRefs, v76)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -4872,9 +5134,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi33(in *jlexer.Lexer, out *ListRunne
 					out.BetIds = (out.BetIds)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v65 string
-					v65 = string(in.String())
-					out.BetIds = append(out.BetIds, v65)
+					var v77 string
+					v77 = string(in.String())
+					out.BetIds = append(out.BetIds, v77)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -4969,11 +5231,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi33(out *jwriter.Writer, in ListRunn
 		}
 		{
 			out.RawByte('[')
-			for v66, v67 := range in.CustomerStrategyRefs {
-				if v66 > 0 {
+			for v78, v79 := range in.CustomerStrategyRefs {
+				if v78 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v67))
+				out.String(string(v79))
 			}
 			out.RawByte(']')
 		}
@@ -5018,11 +5280,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi33(out *jwriter.Writer, in ListRunn
 		}
 		{
 			out.RawByte('[')
-			for v68, v69 := range in.BetIds {
-				if v68 > 0 {
+			for v80, v81 := range in.BetIds {
+				if v80 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v69))
+				out.String(string(v81))
 			}
 			out.RawByte(']')
 		}
@@ -5064,7 +5326,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi34(in *jlexer.Lexer, out *ListMarke
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -5088,11 +5350,11 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi34(in *jlexer.Lexer, out *ListMarke
 					out.MarketIDs = (out.MarketIDs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v70 MarketID
+					var v82 MarketID
 					if data := in.Raw(); in.Ok() {
-						in.AddError((v70).UnmarshalJSON(data))
+						in.AddError((v82).UnmarshalJSON(data))
 					}
-					out.MarketIDs = append(out.MarketIDs, v70)
+					out.MarketIDs = append(out.MarketIDs, v82)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -5123,11 +5385,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi34(out *jwriter.Writer, in ListMark
 		out.RawString(prefix[1:])
 		{
 			out.RawByte('[')
-			for v71, v72 := range in.MarketIDs {
-				if v71 > 0 {
+			for v83, v84 := range in.MarketIDs {
+				if v83 > 0 {
 					out.RawByte(',')
 				}
-				out.Raw((v72).MarshalJSON())
+				out.Raw((v84).MarshalJSON())
 			}
 			out.RawByte(']')
 		}
@@ -5199,7 +5461,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi35(in *jlexer.Lexer, out *ListMarke
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -5225,9 +5487,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi35(in *jlexer.Lexer, out *ListMarke
 					out.MarketProjection = (out.MarketProjection)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v73 string
-					v73 = string(in.String())
-					out.MarketProjection = append(out.MarketProjection, v73)
+					var v85 string
+					v85 = string(in.String())
+					out.MarketProjection = append(out.MarketProjection, v85)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -5236,6 +5498,8 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi35(in *jlexer.Lexer, out *ListMarke
 			out.MaxResults = int(in.Int())
 		case "filter":
 			(out.Filter).UnmarshalEasyJSON(in)
+		case "locale":
+			out.Locale = string(in.String())
 		default:
 			in.SkipRecursive()
 		}
@@ -5266,11 +5530,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi35(out *jwriter.Writer, in ListMark
 		}
 		{
 			out.RawByte('[')
-			for v74, v75 := range in.MarketProjection {
-				if v74 > 0 {
+			for v86, v87 := range in.MarketProjection {
+				if v86 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v75))
+				out.String(string(v87))
 			}
 			out.RawByte(']')
 		}
@@ -5294,6 +5558,16 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi35(out *jwriter.Writer, in ListMark
 			out.RawString(prefix)
 		}
 		(in.Filter).MarshalEasyJSON(out)
+	}
+	if in.Locale != "" {
+		const prefix string = ",\"locale\":"
+		if first {
+			first = false
+			out.RawString(prefix[1:])
+		} else {
+			out.RawString(prefix)
+		}
+		out.String(string(in.Locale))
 	}
 	out.RawByte('}')
 }
@@ -5332,7 +5606,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi36(in *jlexer.Lexer, out *ListMarke
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -5356,11 +5630,11 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi36(in *jlexer.Lexer, out *ListMarke
 					out.MarketIds = (out.MarketIds)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v76 MarketID
+					var v88 MarketID
 					if data := in.Raw(); in.Ok() {
-						in.AddError((v76).UnmarshalJSON(data))
+						in.AddError((v88).UnmarshalJSON(data))
 					}
-					out.MarketIds = append(out.MarketIds, v76)
+					out.MarketIds = append(out.MarketIds, v88)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -5391,9 +5665,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi36(in *jlexer.Lexer, out *ListMarke
 					out.CustomerStrategyRefs = (out.CustomerStrategyRefs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v77 string
-					v77 = string(in.String())
-					out.CustomerStrategyRefs = append(out.CustomerStrategyRefs, v77)
+					var v89 string
+					v89 = string(in.String())
+					out.CustomerStrategyRefs = append(out.CustomerStrategyRefs, v89)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -5422,9 +5696,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi36(in *jlexer.Lexer, out *ListMarke
 					out.BetIds = (out.BetIds)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v78 string
-					v78 = string(in.String())
-					out.BetIds = append(out.BetIds, v78)
+					var v90 string
+					v90 = string(in.String())
+					out.BetIds = append(out.BetIds, v90)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -5449,11 +5723,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi36(out *jwriter.Writer, in ListMark
 		out.RawString(prefix[1:])
 		{
 			out.RawByte('[')
-			for v79, v80 := range in.MarketIds {
-				if v79 > 0 {
+			for v91, v92 := range in.MarketIds {
+				if v91 > 0 {
 					out.RawByte(',')
 				}
-				out.Raw((v80).MarshalJSON())
+				out.Raw((v92).MarshalJSON())
 			}
 			out.RawByte(']')
 		}
@@ -5518,11 +5792,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi36(out *jwriter.Writer, in ListMark
 		}
 		{
 			out.RawByte('[')
-			for v81, v82 := range in.CustomerStrategyRefs {
-				if v81 > 0 {
+			for v93, v94 := range in.CustomerStrategyRefs {
+				if v93 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v82))
+				out.String(string(v94))
 			}
 			out.RawByte(']')
 		}
@@ -5567,11 +5841,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi36(out *jwriter.Writer, in ListMark
 		}
 		{
 			out.RawByte('[')
-			for v83, v84 := range in.BetIds {
-				if v83 > 0 {
+			for v95, v96 := range in.BetIds {
+				if v95 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v84))
+				out.String(string(v96))
 			}
 			out.RawByte(']')
 		}
@@ -5613,7 +5887,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi37(in *jlexer.Lexer, out *ListCurre
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -5637,9 +5911,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi37(in *jlexer.Lexer, out *ListCurre
 					out.BetIDs = (out.BetIDs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v85 string
-					v85 = string(in.String())
-					out.BetIDs = append(out.BetIDs, v85)
+					var v97 string
+					v97 = string(in.String())
+					out.BetIDs = append(out.BetIDs, v97)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -5660,11 +5934,11 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi37(in *jlexer.Lexer, out *ListCurre
 					out.MarketIDs = (out.MarketIDs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v86 MarketID
+					var v98 MarketID
 					if data := in.Raw(); in.Ok() {
-						in.AddError((v86).UnmarshalJSON(data))
+						in.AddError((v98).UnmarshalJSON(data))
 					}
-					out.MarketIDs = append(out.MarketIDs, v86)
+					out.MarketIDs = append(out.MarketIDs, v98)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -5687,9 +5961,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi37(in *jlexer.Lexer, out *ListCurre
 					out.CustomerOrderRefs = (out.CustomerOrderRefs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v87 string
-					v87 = string(in.String())
-					out.CustomerOrderRefs = append(out.CustomerOrderRefs, v87)
+					var v99 string
+					v99 = string(in.String())
+					out.CustomerOrderRefs = append(out.CustomerOrderRefs, v99)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -5710,9 +5984,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi37(in *jlexer.Lexer, out *ListCurre
 					out.CustomerStrategyRefs = (out.CustomerStrategyRefs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v88 string
-					v88 = string(in.String())
-					out.CustomerStrategyRefs = append(out.CustomerStrategyRefs, v88)
+					var v100 string
+					v100 = string(in.String())
+					out.CustomerStrategyRefs = append(out.CustomerStrategyRefs, v100)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -5755,11 +6029,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi37(out *jwriter.Writer, in ListCurr
 		out.RawString(prefix[1:])
 		{
 			out.RawByte('[')
-			for v89, v90 := range in.BetIDs {
-				if v89 > 0 {
+			for v101, v102 := range in.BetIDs {
+				if v101 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v90))
+				out.String(string(v102))
 			}
 			out.RawByte(']')
 		}
@@ -5774,11 +6048,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi37(out *jwriter.Writer, in ListCurr
 		}
 		{
 			out.RawByte('[')
-			for v91, v92 := range in.MarketIDs {
-				if v91 > 0 {
+			for v103, v104 := range in.MarketIDs {
+				if v103 > 0 {
 					out.RawByte(',')
 				}
-				out.Raw((v92).MarshalJSON())
+				out.Raw((v104).MarshalJSON())
 			}
 			out.RawByte(']')
 		}
@@ -5803,11 +6077,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi37(out *jwriter.Writer, in ListCurr
 		}
 		{
 			out.RawByte('[')
-			for v93, v94 := range in.CustomerOrderRefs {
-				if v93 > 0 {
+			for v105, v106 := range in.CustomerOrderRefs {
+				if v105 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v94))
+				out.String(string(v106))
 			}
 			out.RawByte(']')
 		}
@@ -5822,11 +6096,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi37(out *jwriter.Writer, in ListCurr
 		}
 		{
 			out.RawByte('[')
-			for v95, v96 := range in.CustomerStrategyRefs {
-				if v95 > 0 {
+			for v107, v108 := range in.CustomerStrategyRefs {
+				if v107 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v96))
+				out.String(string(v108))
 			}
 			out.RawByte(']')
 		}
@@ -5918,7 +6192,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi38(in *jlexer.Lexer, out *ListClear
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -5944,9 +6218,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi38(in *jlexer.Lexer, out *ListClear
 					out.EventTypeIDs = (out.EventTypeIDs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v97 string
-					v97 = string(in.String())
-					out.EventTypeIDs = append(out.EventTypeIDs, v97)
+					var v109 string
+					v109 = string(in.String())
+					out.EventTypeIDs = append(out.EventTypeIDs, v109)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -5967,9 +6241,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi38(in *jlexer.Lexer, out *ListClear
 					out.EventIDs = (out.EventIDs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v98 string
-					v98 = string(in.String())
-					out.EventIDs = append(out.EventIDs, v98)
+					var v110 string
+					v110 = string(in.String())
+					out.EventIDs = append(out.EventIDs, v110)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -5990,11 +6264,11 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi38(in *jlexer.Lexer, out *ListClear
 					out.MarketIDs = (out.MarketIDs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v99 MarketID
+					var v111 MarketID
 					if data := in.Raw(); in.Ok() {
-						in.AddError((v99).UnmarshalJSON(data))
+						in.AddError((v111).UnmarshalJSON(data))
 					}
-					out.MarketIDs = append(out.MarketIDs, v99)
+					out.MarketIDs = append(out.MarketIDs, v111)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -6015,9 +6289,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi38(in *jlexer.Lexer, out *ListClear
 					out.RunnerIDs = (out.RunnerIDs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v100 int64
-					v100 = int64(in.Int64())
-					out.RunnerIDs = append(out.RunnerIDs, v100)
+					var v112 int64
+					v112 = int64(in.Int64())
+					out.RunnerIDs = append(out.RunnerIDs, v112)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -6038,9 +6312,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi38(in *jlexer.Lexer, out *ListClear
 					out.BetIDs = (out.BetIDs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v101 string
-					v101 = string(in.String())
-					out.BetIDs = append(out.BetIDs, v101)
+					var v113 string
+					v113 = string(in.String())
+					out.BetIDs = append(out.BetIDs, v113)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -6061,9 +6335,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi38(in *jlexer.Lexer, out *ListClear
 					out.CustomerOrderRefs = (out.CustomerOrderRefs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v102 string
-					v102 = string(in.String())
-					out.CustomerOrderRefs = append(out.CustomerOrderRefs, v102)
+					var v114 string
+					v114 = string(in.String())
+					out.CustomerOrderRefs = append(out.CustomerOrderRefs, v114)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -6084,9 +6358,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi38(in *jlexer.Lexer, out *ListClear
 					out.CustomerStrategyRefs = (out.CustomerStrategyRefs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v103 string
-					v103 = string(in.String())
-					out.CustomerStrategyRefs = append(out.CustomerStrategyRefs, v103)
+					var v115 string
+					v115 = string(in.String())
+					out.CustomerStrategyRefs = append(out.CustomerStrategyRefs, v115)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -6145,11 +6419,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi38(out *jwriter.Writer, in ListClea
 		}
 		{
 			out.RawByte('[')
-			for v104, v105 := range in.EventTypeIDs {
-				if v104 > 0 {
+			for v116, v117 := range in.EventTypeIDs {
+				if v116 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v105))
+				out.String(string(v117))
 			}
 			out.RawByte(']')
 		}
@@ -6164,11 +6438,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi38(out *jwriter.Writer, in ListClea
 		}
 		{
 			out.RawByte('[')
-			for v106, v107 := range in.EventIDs {
-				if v106 > 0 {
+			for v118, v119 := range in.EventIDs {
+				if v118 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v107))
+				out.String(string(v119))
 			}
 			out.RawByte(']')
 		}
@@ -6183,11 +6457,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi38(out *jwriter.Writer, in ListClea
 		}
 		{
 			out.RawByte('[')
-			for v108, v109 := range in.MarketIDs {
-				if v108 > 0 {
+			for v120, v121 := range in.MarketIDs {
+				if v120 > 0 {
 					out.RawByte(',')
 				}
-				out.Raw((v109).MarshalJSON())
+				out.Raw((v121).MarshalJSON())
 			}
 			out.RawByte(']')
 		}
@@ -6202,11 +6476,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi38(out *jwriter.Writer, in ListClea
 		}
 		{
 			out.RawByte('[')
-			for v110, v111 := range in.RunnerIDs {
-				if v110 > 0 {
+			for v122, v123 := range in.RunnerIDs {
+				if v122 > 0 {
 					out.RawByte(',')
 				}
-				out.Int64(int64(v111))
+				out.Int64(int64(v123))
 			}
 			out.RawByte(']')
 		}
@@ -6221,11 +6495,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi38(out *jwriter.Writer, in ListClea
 		}
 		{
 			out.RawByte('[')
-			for v112, v113 := range in.BetIDs {
-				if v112 > 0 {
+			for v124, v125 := range in.BetIDs {
+				if v124 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v113))
+				out.String(string(v125))
 			}
 			out.RawByte(']')
 		}
@@ -6240,11 +6514,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi38(out *jwriter.Writer, in ListClea
 		}
 		{
 			out.RawByte('[')
-			for v114, v115 := range in.CustomerOrderRefs {
-				if v114 > 0 {
+			for v126, v127 := range in.CustomerOrderRefs {
+				if v126 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v115))
+				out.String(string(v127))
 			}
 			out.RawByte(']')
 		}
@@ -6259,11 +6533,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi38(out *jwriter.Writer, in ListClea
 		}
 		{
 			out.RawByte('[')
-			for v116, v117 := range in.CustomerStrategyRefs {
-				if v116 > 0 {
+			for v128, v129 := range in.CustomerStrategyRefs {
+				if v128 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v117))
+				out.String(string(v129))
 			}
 			out.RawByte(']')
 		}
@@ -6375,7 +6649,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi39(in *jlexer.Lexer, out *ListArg) 
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -6448,7 +6722,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi40(in *jlexer.Lexer, out *LimitOrde
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -6593,7 +6867,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi41(in *jlexer.Lexer, out *LimitOnCl
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -6672,7 +6946,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi42(in *jlexer.Lexer, out *ItemDescr
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -6789,7 +7063,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi43(in *jlexer.Lexer, out *ExchangeP
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -6813,9 +7087,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi43(in *jlexer.Lexer, out *ExchangeP
 					out.AvailableToBack = (out.AvailableToBack)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v118 PriceSize
-					(v118).UnmarshalEasyJSON(in)
-					out.AvailableToBack = append(out.AvailableToBack, v118)
+					var v130 PriceSize
+					(v130).UnmarshalEasyJSON(in)
+					out.AvailableToBack = append(out.AvailableToBack, v130)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -6836,9 +7110,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi43(in *jlexer.Lexer, out *ExchangeP
 					out.AvailableToLay = (out.AvailableToLay)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v119 PriceSize
-					(v119).UnmarshalEasyJSON(in)
-					out.AvailableToLay = append(out.AvailableToLay, v119)
+					var v131 PriceSize
+					(v131).UnmarshalEasyJSON(in)
+					out.AvailableToLay = append(out.AvailableToLay, v131)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -6859,9 +7133,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi43(in *jlexer.Lexer, out *ExchangeP
 					out.TradedVolume = (out.TradedVolume)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v120 PriceSize
-					(v120).UnmarshalEasyJSON(in)
-					out.TradedVolume = append(out.TradedVolume, v120)
+					var v132 PriceSize
+					(v132).UnmarshalEasyJSON(in)
+					out.TradedVolume = append(out.TradedVolume, v132)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -6886,11 +7160,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi43(out *jwriter.Writer, in Exchange
 		out.RawString(prefix[1:])
 		{
 			out.RawByte('[')
-			for v121, v122 := range in.AvailableToBack {
-				if v121 > 0 {
+			for v133, v134 := range in.AvailableToBack {
+				if v133 > 0 {
 					out.RawByte(',')
 				}
-				(v122).MarshalEasyJSON(out)
+				(v134).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -6905,11 +7179,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi43(out *jwriter.Writer, in Exchange
 		}
 		{
 			out.RawByte('[')
-			for v123, v124 := range in.AvailableToLay {
-				if v123 > 0 {
+			for v135, v136 := range in.AvailableToLay {
+				if v135 > 0 {
 					out.RawByte(',')
 				}
-				(v124).MarshalEasyJSON(out)
+				(v136).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -6924,11 +7198,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi43(out *jwriter.Writer, in Exchange
 		}
 		{
 			out.RawByte('[')
-			for v125, v126 := range in.TradedVolume {
-				if v125 > 0 {
+			for v137, v138 := range in.TradedVolume {
+				if v137 > 0 {
 					out.RawByte(',')
 				}
-				(v126).MarshalEasyJSON(out)
+				(v138).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -6970,7 +7244,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi44(in *jlexer.Lexer, out *ExchangeP
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -6994,9 +7268,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi44(in *jlexer.Lexer, out *ExchangeP
 					out.AvailableToBack = (out.AvailableToBack)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v127 PriceSize
-					(v127).UnmarshalEasyJSON(in)
-					out.AvailableToBack = append(out.AvailableToBack, v127)
+					var v139 PriceSize
+					(v139).UnmarshalEasyJSON(in)
+					out.AvailableToBack = append(out.AvailableToBack, v139)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -7017,9 +7291,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi44(in *jlexer.Lexer, out *ExchangeP
 					out.AvailableToLay = (out.AvailableToLay)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v128 PriceSize
-					(v128).UnmarshalEasyJSON(in)
-					out.AvailableToLay = append(out.AvailableToLay, v128)
+					var v140 PriceSize
+					(v140).UnmarshalEasyJSON(in)
+					out.AvailableToLay = append(out.AvailableToLay, v140)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -7040,9 +7314,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi44(in *jlexer.Lexer, out *ExchangeP
 					out.TradedVolume = (out.TradedVolume)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v129 PriceSize
-					(v129).UnmarshalEasyJSON(in)
-					out.TradedVolume = append(out.TradedVolume, v129)
+					var v141 PriceSize
+					(v141).UnmarshalEasyJSON(in)
+					out.TradedVolume = append(out.TradedVolume, v141)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -7067,11 +7341,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi44(out *jwriter.Writer, in Exchange
 		out.RawString(prefix[1:])
 		{
 			out.RawByte('[')
-			for v130, v131 := range in.AvailableToBack {
-				if v130 > 0 {
+			for v142, v143 := range in.AvailableToBack {
+				if v142 > 0 {
 					out.RawByte(',')
 				}
-				(v131).MarshalEasyJSON(out)
+				(v143).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -7086,11 +7360,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi44(out *jwriter.Writer, in Exchange
 		}
 		{
 			out.RawByte('[')
-			for v132, v133 := range in.AvailableToLay {
-				if v132 > 0 {
+			for v144, v145 := range in.AvailableToLay {
+				if v144 > 0 {
 					out.RawByte(',')
 				}
-				(v133).MarshalEasyJSON(out)
+				(v145).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -7105,11 +7379,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi44(out *jwriter.Writer, in Exchange
 		}
 		{
 			out.RawByte('[')
-			for v134, v135 := range in.TradedVolume {
-				if v134 > 0 {
+			for v146, v147 := range in.TradedVolume {
+				if v146 > 0 {
 					out.RawByte(',')
 				}
-				(v135).MarshalEasyJSON(out)
+				(v147).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -7151,7 +7425,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi45(in *jlexer.Lexer, out *ExBestOff
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -7266,7 +7540,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi46(in *jlexer.Lexer, out *EventType
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -7339,7 +7613,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi47(in *jlexer.Lexer, out *EventType
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -7418,7 +7692,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi48(in *jlexer.Lexer, out *EventResu
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -7491,7 +7765,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi49(in *jlexer.Lexer, out *Event) {
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -7620,7 +7894,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi50(in *jlexer.Lexer, out *CurrentOr
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -7636,7 +7910,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi50(in *jlexer.Lexer, out *CurrentOr
 				in.Delim('[')
 				if out.CurrentOrders == nil {
 					if !in.IsDelim(']') {
-						out.CurrentOrders = make([]CurrentOrderSummary, 0, 1)
+						out.CurrentOrders = make([]CurrentOrderSummary, 0, 0)
 					} else {
 						out.CurrentOrders = []CurrentOrderSummary{}
 					}
@@ -7644,9 +7918,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi50(in *jlexer.Lexer, out *CurrentOr
 					out.CurrentOrders = (out.CurrentOrders)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v136 CurrentOrderSummary
-					(v136).UnmarshalEasyJSON(in)
-					out.CurrentOrders = append(out.CurrentOrders, v136)
+					var v148 CurrentOrderSummary
+					(v148).UnmarshalEasyJSON(in)
+					out.CurrentOrders = append(out.CurrentOrders, v148)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -7674,11 +7948,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi50(out *jwriter.Writer, in CurrentO
 			out.RawString("null")
 		} else {
 			out.RawByte('[')
-			for v137, v138 := range in.CurrentOrders {
-				if v137 > 0 {
+			for v149, v150 := range in.CurrentOrders {
+				if v149 > 0 {
 					out.RawByte(',')
 				}
-				(v138).MarshalEasyJSON(out)
+				(v150).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -7725,7 +7999,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi51(in *jlexer.Lexer, out *CurrentOr
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -7952,7 +8226,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi52(in *jlexer.Lexer, out *CountryCo
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -8025,7 +8299,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi53(in *jlexer.Lexer, out *Competiti
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -8105,7 +8379,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi54(in *jlexer.Lexer, out *Competiti
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -8178,7 +8452,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi55(in *jlexer.Lexer, out *ClearedOr
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -8194,7 +8468,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi55(in *jlexer.Lexer, out *ClearedOr
 				in.Delim('[')
 				if out.ClearedOrders == nil {
 					if !in.IsDelim(']') {
-						out.ClearedOrders = make([]ClearedOrderSummary, 0, 1)
+						out.ClearedOrders = make([]ClearedOrderSummary, 0, 0)
 					} else {
 						out.ClearedOrders = []ClearedOrderSummary{}
 					}
@@ -8202,9 +8476,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi55(in *jlexer.Lexer, out *ClearedOr
 					out.ClearedOrders = (out.ClearedOrders)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v139 ClearedOrderSummary
-					(v139).UnmarshalEasyJSON(in)
-					out.ClearedOrders = append(out.ClearedOrders, v139)
+					var v151 ClearedOrderSummary
+					(v151).UnmarshalEasyJSON(in)
+					out.ClearedOrders = append(out.ClearedOrders, v151)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -8232,11 +8506,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi55(out *jwriter.Writer, in ClearedO
 			out.RawString("null")
 		} else {
 			out.RawByte('[')
-			for v140, v141 := range in.ClearedOrders {
-				if v140 > 0 {
+			for v152, v153 := range in.ClearedOrders {
+				if v152 > 0 {
 					out.RawByte(',')
 				}
-				(v141).MarshalEasyJSON(out)
+				(v153).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -8283,7 +8557,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi56(in *jlexer.Lexer, out *ClearedOr
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -8536,7 +8810,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi57(in *jlexer.Lexer, out *CancelOrd
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -8564,9 +8838,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi57(in *jlexer.Lexer, out *CancelOrd
 					out.Instructions = (out.Instructions)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v142 CancelInstruction
-					(v142).UnmarshalEasyJSON(in)
-					out.Instructions = append(out.Instructions, v142)
+					var v154 CancelInstruction
+					(v154).UnmarshalEasyJSON(in)
+					out.Instructions = append(out.Instructions, v154)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -8603,11 +8877,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi57(out *jwriter.Writer, in CancelOr
 		}
 		{
 			out.RawByte('[')
-			for v143, v144 := range in.Instructions {
-				if v143 > 0 {
+			for v155, v156 := range in.Instructions {
+				if v155 > 0 {
 					out.RawByte(',')
 				}
-				(v144).MarshalEasyJSON(out)
+				(v156).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -8659,7 +8933,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi58(in *jlexer.Lexer, out *CancelIns
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -8774,7 +9048,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi59(in *jlexer.Lexer, out *CancelIns
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -8853,7 +9127,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi60(in *jlexer.Lexer, out *CancelExe
 	}
 	in.Delim('{')
 	for !in.IsDelim('}') {
-		key := in.UnsafeString()
+		key := in.UnsafeFieldName(false)
 		in.WantColon()
 		if in.IsNull() {
 			in.Skip()
@@ -8879,7 +9153,7 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi60(in *jlexer.Lexer, out *CancelExe
 				in.Delim('[')
 				if out.InstructionReports == nil {
 					if !in.IsDelim(']') {
-						out.InstructionReports = make([]CancelInstructionReport, 0, 1)
+						out.InstructionReports = make([]CancelInstructionReport, 0, 0)
 					} else {
 						out.InstructionReports = []CancelInstructionReport{}
 					}
@@ -8887,9 +9161,9 @@ func easyjson8e2f8dd8DecodeGithubComTarbBfapi60(in *jlexer.Lexer, out *CancelExe
 					out.InstructionReports = (out.InstructionReports)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v145 CancelInstructionReport
-					(v145).UnmarshalEasyJSON(in)
-					out.InstructionReports = append(out.InstructionReports, v145)
+					var v157 CancelInstructionReport
+					(v157).UnmarshalEasyJSON(in)
+					out.InstructionReports = append(out.InstructionReports, v157)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -8954,11 +9228,11 @@ func easyjson8e2f8dd8EncodeGithubComTarbBfapi60(out *jwriter.Writer, in CancelEx
 		}
 		{
 			out.RawByte('[')
-			for v146, v147 := range in.InstructionReports {
-				if v146 > 0 {
+			for v158, v159 := range in.InstructionReports {
+				if v158 > 0 {
 					out.RawByte(',')
 				}
-				(v147).MarshalEasyJSON(out)
+				(v159).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}

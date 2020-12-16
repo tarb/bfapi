@@ -22,60 +22,67 @@ var (
 )
 
 //
-func (c *Client) Token() Token {
-	return c.token.Load().(Token)
-}
-
-//
-func (c *Client) LoggedIn() bool {
-	t := c.token.Load().(Token)
-	return t.Token != "" && time.Now().Sub(t.Update.ToStdTime()) < SessionTimeout
-}
-
-//
-func (c *Client) Subscribed() bool {
-	return c.token.Load().(Token).ActiveSub()
-}
-
-//
-// func (c *Client) FAKESUB() {
-// 	t := c.token.Load().(Token)
-// 	t.Sub = Subscription{
-// 		Token:  "1234-ABCD-5678",
-// 		Ref:    "test",
-// 		Status: SubStatusActivated,
-// 		Time:   FromStdTime(time.Now().Add(100 * time.Hour)),
-// 	}
-// 	c.token.Store(t)
-// }
-
-//
-func (c *Client) LoggedInAndSubscribed() bool {
-	t := c.token.Load().(Token)
-	return t.ActiveSub() && t.Token != "" && time.Now().Sub(t.Update.ToStdTime()) < SessionTimeout
-}
-
-// Login is a singleflight call - it sets up default headers
-// then logs in with the supplied username and password
-// params are username, password - betfair account login details
-func (c *Client) Login(username, password string) (Token, error) {
-	if !c.sem.TryAcquire(1) {
-		return Token{}, ErrBusy
-	}
-	defer c.sem.Release(1)
-
-	return c.login(username, password)
-}
-
-func (c *Client) login(username, password string) (Token, error) {
+func (c *Client) VendorLogin(username, password string) (Token, error) {
 	// if logged in already then error out - require logout first
 	if c.LoggedIn() {
 		return Token{}, ErrAlreadyLoggedIn
 	}
 
-	//
-	var token string
+	if !c.sem.TryAcquire(1) {
+		return Token{}, ErrBusy
+	}
+	defer c.sem.Release(1)
 
+	token, err := c.login(username, password)
+	if err != nil {
+		return Token{}, err
+	}
+
+	vcid, err := c.GetVendorClientID()
+	if err != nil {
+		return Token{}, err
+	}
+	sh, err := c.GetApplicationSubscriptionHistory(vcid, c.appKey)
+	if err != nil {
+		return Token{}, err
+	}
+
+	// store the session token
+	now := FromStdTime(time.Now())
+	t := Token{SessionToken, token, now, now, vcid, sh.GetBest()}
+	c.token.Store(t)
+
+	// Not necessarily login success
+	// result.SessionToken can be empty here with non nil err value
+	return t, nil
+}
+
+// Login is a singleflight call - logs in with the supplied username and password
+// params are username, password - betfair account login details
+func (c *Client) Login(username, password string) (Token, error) {
+	// if logged in already then error out - require logout first
+	if c.LoggedIn() {
+		return Token{}, ErrAlreadyLoggedIn
+	}
+
+	if !c.sem.TryAcquire(1) {
+		return Token{}, ErrBusy
+	}
+	defer c.sem.Release(1)
+
+	token, err := c.login(username, password)
+	if err != nil {
+		return Token{}, err
+	}
+
+	now := FromStdTime(time.Now())
+	t := Token{Token: token, Logged: now, Update: now}
+	c.token.Store(t)
+
+	return t, nil
+}
+
+func (c *Client) login(username, password string) (string, error) {
 	if c.certificate == nil {
 		var result LoginResult
 		err := c.client.Build(http.MethodPost, scheme, accountHost, login).
@@ -92,12 +99,12 @@ func (c *Client) login(username, password string) (Token, error) {
 			CollectJSON(&result)
 
 		if err != nil {
-			return Token{}, err
+			return "", err
 		} else if result.Status != StatusSuccess {
-			return Token{}, LoginError(result.Error)
+			return "", LoginError(result.Error)
 		}
 
-		token = result.SessionToken
+		return result.SessionToken, nil
 
 	} else {
 		var certResult CertLoginResult
@@ -115,33 +122,13 @@ func (c *Client) login(username, password string) (Token, error) {
 			CollectJSON(&certResult)
 
 		if err != nil {
-			return Token{}, err
+			return "", err
 		} else if certResult.Status != StatusSuccess {
-			return Token{}, LoginError(certResult.Status)
+			return "", LoginError(certResult.Status)
 		}
 
-		token = certResult.SessionToken
+		return certResult.SessionToken, nil
 	}
-
-	c.authType, c.authValue = SessionToken, token
-
-	vcid, err := c.GetVendorClientID()
-	if err != nil {
-		return Token{}, err
-	}
-	sh, err := c.GetApplicationSubscriptionHistory(vcid, c.appKey)
-	if err != nil {
-		return Token{}, err
-	}
-
-	// store the session token
-	now := FromStdTime(time.Now())
-	t := Token{token, now, now, vcid, sh.GetBest()}
-	c.token.Store(t)
-
-	// Not necessarily login success
-	// result.SessionToken can be empty here with non nil err value
-	return t, nil
 }
 
 // KeepAlive error if subscription is no longer active for example
@@ -158,7 +145,7 @@ func (c *Client) KeepAlive() error {
 	var result LoginResult
 	err := c.client.Build(http.MethodGet, scheme, accountHost, keepAlive).
 		WithHeaders(func(h http.Header) {
-			h.Set(c.authType.String(), c.authValue)
+			h.Set(c.GetAuth())
 			h.Set("X-Application", c.appKey)
 			h.Set("Accept", "application/json")
 			h.Set("Connection", "keep-alive")
@@ -174,7 +161,7 @@ func (c *Client) KeepAlive() error {
 		return errors.New("Session KeepAlive Failed. " + result.Error)
 	}
 
-	c.token.Store(Token{token.Token, token.Logged, now, token.VcID, token.Sub})
+	c.token.Store(Token{SessionToken, token.Token, token.Logged, now, token.VcID, token.Sub})
 
 	return nil
 }
@@ -192,7 +179,7 @@ func (c *Client) ActiveSub() (bool, error) {
 				return false, err
 			}
 
-			t := Token{token.Token, token.Logged, token.Update, token.VcID, sh.GetBest()}
+			t := Token{SessionToken, token.Token, token.Logged, token.Update, token.VcID, sh.GetBest()}
 			if active := t.ActiveSub(); !active {
 				c.logout()
 				return false, ErrSubExpired
@@ -224,7 +211,7 @@ func (c *Client) ActivateSub(token string) error {
 		return err
 	}
 
-	t = Token{t.Token, t.Logged, t.Update, t.VcID, sh.GetBest()}
+	t = Token{t.Type, t.Token, t.Logged, t.Update, t.VcID, sh.GetBest()}
 
 	if active := t.ActiveSub(); !active {
 		return ErrSubActivationFailed
@@ -253,7 +240,7 @@ func (c *Client) logout() error {
 	var result LoginResult
 	err := c.client.Build(http.MethodGet, scheme, accountHost, logout).
 		WithHeaders(func(h http.Header) {
-			h.Set(c.authType.String(), c.authValue)
+			h.Set(c.GetAuth())
 			h.Set("X-Application", c.appKey)
 			h.Set("Accept", "application/json")
 			h.Set("Connection", "keep-alive")

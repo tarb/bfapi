@@ -1,6 +1,6 @@
 package bfapi
 
-//
+// ListArg parameter for ListMarketTypes/ListEventTypes/ListCompetitions/ListEvents/ListCountries/ListVenues
 type ListArg struct {
 	Filter MarketListFilter `json:"filter"`
 	Locale string           `json:"locale,omitempty"`
@@ -12,16 +12,26 @@ type ListMarketCatalogueArg struct {
 	MarketProjection []string         `json:"marketProjection,omitempty"` //COMPETITION, EVENT, EVENT_TYPE, MARKET_START_TIME, MARKET_DESCRIPTION, RUNNER_DESCRIPTION, RUNNER_METADATA
 	MaxResults       int              `json:"maxResults,omitempty"`
 	Filter           MarketListFilter `json:"filter,omitempty"`
+	Locale           string           `json:"locale,omitempty"`
 }
 
 //
 type MarketListFilter struct {
-	MarketIds      []MarketID `json:"marketIds,omitempty"`
-	EventTypes     []string   `json:"eventTypeIds,omitempty"`
-	Countries      []string   `json:"marketCountries,omitempty"`
-	TypeCodes      []string   `json:"marketTypeCodes,omitempty"`
-	CompetitionIds []string   `json:"competitionIds,omitempty"`
-	Venues         []string   `json:"venues,omitempty"`
+	TextQuery          string        `json:"textQuery,omitempty"`
+	MarketIds          []MarketID    `json:"marketIds,omitempty"`
+	EventTypeIds       []string      `json:"eventTypeIds,omitempty"`
+	EventIds           []string      `json:"eventIds,omitempty"`
+	Countries          []string      `json:"marketCountries,omitempty"`
+	MarketTypeCodes    []string      `json:"marketTypeCodes,omitempty"`
+	MarketBettingTypes []string      `json:"marketBettingTypes,omitempty"`
+	RaceTypes          []string      `json:"raceTypes,omitempty"`
+	CompetitionIds     []string      `json:"competitionIds,omitempty"`
+	Venues             []string      `json:"venues,omitempty"`
+	WithOrders         []OrderStatus `json:"withOrders,omitempty"`
+	StartTime          *TimeRange    `json:"marketStartTime,omitempty"`
+	BspOnly            *bool         `json:"bspOnly,omitempty"`
+	TurnInPlayEnabled  *bool         `json:"turnInPlayEnabled,omitempty"`
+	InPlayOnly         *bool         `json:"inPlayOnly,omitempty"`
 }
 
 //
@@ -545,7 +555,7 @@ type CurrentOrderSummary struct {
 	CustomerOrderRef    string          `json:"customerOrderRef"`
 	CustomerStrategyRef string          `json:"customerStrategyRef"`
 	Side                Side            `json:"side"`            // BACK | LAY
-	Status              BetStatus       `json:"status"`          // EXECUTABLE,EXECUTION_COMPLETE
+	Status              OrderStatus     `json:"status"`          // EXECUTABLE,EXECUTION_COMPLETE
 	PersistenceType     PersistenceType `json:"persistenceType"` // LAPSE | PERSIST | MARKET_ON_CLOSE
 	OrderType           OrderType       `json:"orderType"`       // LIMIT | LIMIT_ON_CLOSE | MARKET_ON_CLOSE
 }

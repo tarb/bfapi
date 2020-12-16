@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"time"
@@ -83,30 +84,30 @@ type StreamHandler struct {
 
 // OnConnect called on new stream connections, with bfapi ConnectionMessage
 func (s *StreamHandler) OnConnect(cm bfapi.ConnectionMessage) {
-	// bs, err := json.Marshal(cm)
-	// if err != nil {
-	// 	fmt.Println("OnConnect", err)
-	// }
-	// fmt.Println(string(bs))
+	bs, err := json.Marshal(cm)
+	if err != nil {
+		fmt.Println("OnConnect", err)
+	}
+	fmt.Println(string(bs))
 }
 
 // OnStatus called on stream connection changes, with bfapi StatusMessage
 func (s *StreamHandler) OnStatus(sm bfapi.StatusMessage) {
-	// bs, err := json.Marshal(sm)
-	// if err != nil {
-	// 	fmt.Println("OnStatus", err)
-	// }
-	// fmt.Println(string(bs))
+	bs, err := json.Marshal(sm)
+	if err != nil {
+		fmt.Println("OnStatus", err)
+	}
+	fmt.Println(string(bs))
 }
 
 // OnChange called with market or order changes, or HEARTBEAT msg at the specified
 // interval to show stream connectivity if no other changes were sent
 func (s *StreamHandler) OnChange(cm bfapi.ChangeMessage) {
-	// bs, err := json.Marshal(cm)
-	// if err != nil {
-	// 	fmt.Println("OnChange", err)
-	// }
-	// fmt.Println(string(bs))
+	bs, err := json.Marshal(cm)
+	if err != nil {
+		fmt.Println("OnChange", err)
+	}
+	fmt.Println(string(bs))
 }
 
 // OnClose called when stream disconects/ends or when close is called

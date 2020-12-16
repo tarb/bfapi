@@ -3,7 +3,6 @@ package bfapi
 import (
 	"crypto/rand"
 	"crypto/tls"
-	"encoding/json"
 	"net"
 	"net/http"
 	"sync/atomic"
@@ -92,19 +91,8 @@ func (at AuthType) String() string {
 }
 
 //
-type Client struct {
-	client      *www.Client
-	certificate *tls.Certificate
-	sem         *semaphore.Weighted
-	appKey      string
-	token       atomic.Value
-
-	authType  AuthType
-	authValue string
-}
-
-//
 type Token struct {
+	Type   AuthType
 	Token  string
 	Logged Time
 	Update Time
@@ -115,6 +103,15 @@ type Token struct {
 //
 func (t Token) ActiveSub() bool {
 	return t.Sub.SubscriptionStatus == SubStatusActivated
+}
+
+//
+type Client struct {
+	client      *www.Client
+	certificate *tls.Certificate
+	sem         *semaphore.Weighted
+	appKey      string
+	token       atomic.Value //Token
 }
 
 //
@@ -145,88 +142,49 @@ func NewClient(appKey string, c *http.Client, cert *tls.Certificate) *Client {
 
 	client := www.New(c)
 
-	// h.Set("Accept-Encoding", "gzip, deflate")
 	nc := &Client{
 		client:      client,
 		certificate: cert,
 		appKey:      appKey,
 		sem:         semaphore.NewWeighted(1),
 	}
-	nc.token.Store(Token{})
+	nc.SetToken(Token{})
 
 	return nc
 }
 
-// Client returns the www/http client for making manual requests
+// Client returns the www/http client for making manual requests with the same client
 func (c *Client) Client() *www.Client { return c.client }
 
 //
-func (c *Client) GetAuth() (string, string) { return c.authType.String(), c.authValue }
-
-//
-func (c *Client) SetAuth(t AuthType, v string) {
-	c.authType = t
-	if t == OAuthToken {
-		c.authValue = "BEARER " + v
-	} else {
-		c.authValue = v
-	}
+func (c *Client) Token() Token {
+	return c.token.Load().(Token)
 }
 
 //
-func (c *Client) ClearAuth() {
-	c.authType, c.authValue = 0, ""
+func (c *Client) SetToken(t Token) {
+	c.token.Store(t)
 }
 
 //
-type APIError struct {
-	Faultcode   string `json:"faultcode"`
-	Faultstring string `json:"faultstring"`
-	Detail      struct {
-		Exceptionname         string    `json:"exceptionname"`
-		AccountAPINGException Exception `json:"AccountAPINGException"`
-		APINGException        Exception `json:"APINGException"`
-	} `json:"detail"`
+func (c *Client) LoggedIn() bool {
+	t := c.Token()
+	return t.Token != "" && time.Now().Sub(t.Update.ToStdTime()) < SessionTimeout
 }
 
 //
-type Exception struct {
-	RequestUUID  string `json:"requestUUID"`
-	ErrorCode    string `json:"errorCode"`
-	ErrorDetails string `json:"errorDetails"`
+func (c *Client) Subscribed() bool {
+	return c.Token().ActiveSub()
 }
 
-func (e APIError) Error() string {
-	if e.Detail.AccountAPINGException.ErrorCode != "" {
-		return e.Detail.AccountAPINGException.ErrorCode
-	} else if e.Detail.APINGException.ErrorCode != "" {
-		return e.Detail.APINGException.ErrorCode
-	} else {
-		return e.Faultstring
-	}
+//
+func (c *Client) LoggedInAndSubscribed() bool {
+	t := c.Token()
+	return t.ActiveSub() && t.Token != "" && time.Now().Sub(t.Update.ToStdTime()) < SessionTimeout
 }
 
-func statusToAPINGException(err error) error {
-	if err == nil {
-		return nil
-	}
-
-	serr, ok := err.(www.StatusError)
-	if !ok {
-		return err
-	}
-
-	if len(serr.Body) > 0 {
-		var apiErr APIError
-
-		jsonErr := json.Unmarshal(serr.Body, &apiErr)
-		if jsonErr != nil {
-			// return the original err, not the json err
-			return err
-		}
-
-		return apiErr
-	}
-
-	return err
+//
+func (c *Client) GetAuth() (string, string) {
+	t := c.Token()
+	return t.Type.String(), t.Token
 }

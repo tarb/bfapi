@@ -35,9 +35,9 @@ func main() {
 	// request a catalogue of markets meeting the specified filter/projection
 	mcat, err := bfClient.ListMarketCatalogue(bfapi.ListMarketCatalogueArg{
 		Filter: bfapi.MarketListFilter{
-			Countries:  countries,
-			EventTypes: eventTypes,
-			TypeCodes:  marketTypes,
+			Countries:       countries,
+			EventTypeIds:    eventTypes,
+			MarketTypeCodes: marketTypes,
 		},
 		MaxResults:       maxResults,
 		MarketProjection: projection,

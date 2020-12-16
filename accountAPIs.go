@@ -93,7 +93,7 @@ func (c *Client) GetVendorClientID() (string, error) {
 	var result string
 	err := c.client.Build(http.MethodPost, scheme, exchangeHost, getVendorClientID).
 		WithHeaders(func(h http.Header) {
-			if c.authType == OAuthToken {
+			if c.Token().Type == OAuthToken {
 				h.Set("X-Application", c.appKey)
 			}
 
@@ -143,7 +143,7 @@ func (c *Client) ActivateApplicationSubscription(token string) error {
 	err := c.client.Build(http.MethodPost, scheme, exchangeHost, activateApplicationSubscription).
 		WithJSONBody(arg{token}).
 		WithHeaders(func(h http.Header) {
-			if c.authType == OAuthToken {
+			if c.Token().Type == OAuthToken {
 				h.Set("X-Application", c.appKey)
 			}
 
@@ -181,7 +181,7 @@ func (c *Client) GetApplicationSubscriptionHistory(vid, appkey string) (Subscrip
 	var result SubscriptionHistory
 	err := c.client.Build(http.MethodPost, scheme, exchangeHost, getApplicationSubscriptionHistory).
 		WithHeaders(func(h http.Header) {
-			if c.authType == OAuthToken {
+			if c.Token().Type == OAuthToken {
 				h.Set("X-Application", c.appKey)
 			}
 

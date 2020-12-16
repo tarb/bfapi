@@ -134,9 +134,6 @@ func (c *Client) ListClearedOrders(arg ListClearedOrdersArgs) (ClearedOrderSumma
 		}).
 		DoWithRetry(5, www.LinearJitterDelay).
 		CollectJSON(&result)
-		// CollectBytes()
-		// err = json.Unmarshal(bs, &result)
-		// fmt.Println(err, string(bs))
 
 	err = statusToAPINGException(err)
 

@@ -94,12 +94,12 @@ type StreamHandler struct {
 
 // OnConnect called on new stream connections, with bfapi ConnectionMessage
 func (s *StreamHandler) OnConnect(cm bfapi.ConnectionMessage) {
-	fmt.Println(cm)
+    fmt.Println(cm)
 }
 
 // OnStatus called on stream connection changes, with bfapi StatusMessage
 func (s *StreamHandler) OnStatus(sm bfapi.StatusMessage) {
-	fmt.Println(sm)
+    fmt.Println(sm)
 }
 
 // OnChange called with market or order changes, or HEARTBEAT msg at the specified
@@ -110,7 +110,7 @@ func (s *StreamHandler) OnChange(cm bfapi.ChangeMessage) {
 
 // OnClose called when stream disconects/ends or when close is called
 func (s *StreamHandler) OnClose(err error) {
-	fmt.Println(err)
+    fmt.Println(err)
 }
 
 ```

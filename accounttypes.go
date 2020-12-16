@@ -98,14 +98,12 @@ type SubscriptionHistory []SubscriptionHistoryItem
 
 //
 func (sh SubscriptionHistory) GetBest() SubscriptionHistoryItem {
-
 	if len(sh) == 0 {
 		return SubscriptionHistoryItem{SubscriptionStatus: SubStatusUnactivated}
 	}
 
 	best := sh[0]
 	for _, item := range sh[1:] {
-
 		if (item.SubscriptionStatus == SubStatusActivated &&
 			(best.SubscriptionStatus != SubStatusActivated || item.ExpiryDateTime > best.ExpiryDateTime)) ||
 			(best.SubscriptionStatus != SubStatusActivated &&

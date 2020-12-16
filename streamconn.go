@@ -202,10 +202,6 @@ func (sc *tcpStream) Listen() {
 				return
 			}
 
-			// if mc.SegmentType == SegmentTypeSegStart {
-
-			// }
-
 			sc.updateDetails(&mc)
 			sc.handler.OnChange(mc)
 		}
