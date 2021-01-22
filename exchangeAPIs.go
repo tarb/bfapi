@@ -1,6 +1,7 @@
 package bfapi
 
 import (
+	"errors"
 	"net/http"
 
 	"github.com/tarb/util/www"
@@ -58,6 +59,11 @@ func (c *Client) PlaceOrders(arg PlaceOrderArg) (PlaceExecutionReport, error) {
 		}).
 		DoWithRetry(5, www.LinearJitterDelay).
 		CollectJSON(&result)
+
+	if result.Status == "FAILURE" {
+		return result, errors.New(result.ErrorCode)
+	}
+
 	err = statusToAPINGException(err)
 
 	return result, err

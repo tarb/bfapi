@@ -76,7 +76,7 @@ func (c *Client) Login(username, password string) (Token, error) {
 	}
 
 	now := FromStdTime(time.Now())
-	t := Token{Token: token, Logged: now, Update: now}
+	t := Token{Type: SessionToken, Token: token, Logged: now, Update: now}
 	c.token.Store(t)
 
 	return t, nil

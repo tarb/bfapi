@@ -50,7 +50,7 @@ func main() {
 		log.Fatal("No markets returned in catalogue")
 	}
 
-	m := mcat[0]
+	m := mcat[10]
 
 	// place bets on first market, first selection
 	per, err := bfClient.PlaceOrders(bfapi.PlaceOrderArg{
@@ -63,26 +63,30 @@ func main() {
 				LimitOrder: &bfapi.LimitOrder{
 					TimeInForce: bfapi.TimeInForceFillOrKill,
 					Price:       1000,
-					Size:        0.10,
+					Size:        10,
 				},
 			},
 		},
 	})
 	if err != nil {
-		log.Fatalf("Could not retrieve catalogue: %v", err)
+		log.Fatalf("Could not place bet: %v", err)
 	}
+
+	// print report as json
+	bs, _ := json.Marshal(per)
+	fmt.Println(string(bs))
 
 	cosr, err := bfClient.ListCurrentOrders(bfapi.ListCurrentOrdersArgs{
 		BetIDs:          []string{per.InstructionReports[0].BetID},
 		OrderProjection: "ALL",
 	})
 	if err != nil {
-		log.Fatalf("Could not retrieve catalogue: %v", err)
+		log.Fatalf("Could not list orders: %v", err)
 	}
 
-	// print report as json
-	bs, _ := json.Marshal(per)
-	fmt.Println(string(bs))
+	// // print report as json
+	// bs, _ = json.Marshal(per)
+	// fmt.Println(string(bs))
 
 	// print report as json
 	bs, _ = json.Marshal(cosr)
