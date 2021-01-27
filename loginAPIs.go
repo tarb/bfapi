@@ -38,6 +38,9 @@ func (c *Client) VendorLogin(username, password string) (Token, error) {
 		return Token{}, err
 	}
 
+	t := Token{Type: SessionToken, Token: token}
+	c.token.Store(t)
+
 	vcid, err := c.GetVendorClientID()
 	if err != nil {
 		return Token{}, err
@@ -49,7 +52,7 @@ func (c *Client) VendorLogin(username, password string) (Token, error) {
 
 	// store the session token
 	now := FromStdTime(time.Now())
-	t := Token{SessionToken, token, now, now, vcid, sh.GetBest()}
+	t = Token{Type: SessionToken, Token: token, Logged: now, Update: now, VcID: vcid, Sub: sh.GetBest()}
 	c.token.Store(t)
 
 	// Not necessarily login success

@@ -16,10 +16,10 @@ token, err := client.Login("USERNAME", "PASSWORD")
 // login will call either interactive login or certLogin depending on whether a certificate was supplied
 ```
 
-The login expires every 3? hours but KeepAlive can be called to extend this time (by another 3 hours). 
+The login expires every 8 hours but KeepAlive can be called to extend this time (by another 8 hours). 
 ```go
 go func() {
-    ticker := time.NewTicker(3 * time.Hour)
+    ticker := time.NewTicker(7 * time.Hour)
     for range ticker.C {
         if err := client.KeepAlive(); err != nil {
             // ...
